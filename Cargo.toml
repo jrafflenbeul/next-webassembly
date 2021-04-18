@@ -1,0 +1,13 @@
+[package]
+name = "webassembly"
+version = "1.0.0"
+authors = ["Joyce Marvin Rafflenbeul <joyce_marvin.rafflenbeul@fh-bielefeld.de>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = { version = "0.2", features = ["serde-serialize"] } 
+serde = { version = "1.0.125", features = ["derive"] }
+serde_json = "1.0.64"

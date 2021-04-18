@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebAssembly/WASI</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, middle
+
+# WebAssmebly / WASI
+### von Joyce Marvin Rafflenbeul
+
+---
+
+# Agenda
+
+1. Einführung
+2. Warum WebAssembly?
+3. WASI - WebAssembly System Interface
+5. Live Coding
+6. Fazit
+
+---
+
+# Einführung
+### WebAssembly: schnell, effizient, portabel
+* Exekution von Code in nahezu nativer Geschwindigkeit
+* Plattformübergreifend einsetzbar
+* leserlich und gut testbar (-> Assembler)
+* nutzt für Webanwendung allgemein geltende Regeln (z.B. same-origin policy)
+* Rückwärtskompatibel und sehr gut mit Webtechnologien verwendbar
+
+---
+
+# Einführung
+### Welchen Zweck erfüllt WebAssembly:
+* als ultra-performante Erweiterung bzw. Ergänzung für herkömmliche Webapplikationen zu verstehen
+* kleiner Exkurs - Web Plattformen unter der Haube: 
+    1. Virtual Machine -> führt Code von Web Apps aus (z.B. JS)
+    2. Web APIs -> z.B. DOM (Manipulation), WebGL (grafische Darstellung), IndexedDB (clientseitige Speicherung von Daten)
+* WebAssembly kann leistungsintensive Aufgaben übernehmen, welche JS nur schwer bzw. gar nicht bewältigen kann
+
+---
+
+# Einführung
+### Use Cases
+* Video/Musik Applikationen (Streaming, Caching)
+* AR/VR (minimale Reaktionszeit)
+* (lokale) Webserver
+* KI (z.B. Bilderkennung) ...
+
+---
+
+# Warum WebAssembly?
+* Probleme mit JavaScript
+      * JavaScript enthält standardmäßig keine Typisierung
+      * JavaScript ist für seltsames Verhalten bekannt:
+
+      ```JavaScript
+        [] == ![] // true
+        NaN === Nan // false
+        Number.MIN_VALUE > 0; // true
+        parseInt("forest"); // NaN
+        parseInt("forest", 16) // 15
+      ```
+* Performance Boost durch WebAssembly
+      * WebAssembly ist vorcompilierter Bytecode
+      * Bytecode kann in nahezu nativer Geschwindigkeit vom Browser ausgeführt werden
+
+---
+
+# WASI - WebAssembly System Interface
+* maschinenunabhängige, Non-Web und systemorientierte API für WebAssembly
+* API, welche Zugriff auf Features des OS ermöglicht
+  * Filesystem, Uhr, Zufallszahlen usw.
+  * ermöglicht aktuell Zugriff auf Web APIs
+* Browserunabhängig -> WebAssembly könnte auch gänzlich ohne Browser genutzt werden, allerdings ist nur die Web API als standardisierte Schnittstelle verfügbar
+* funktionierende WebAssembly Toolchains gibt es bei Rust und C/C++
+
+---
+
+class: center, middle
+
+# Live Coding
+
+---
+
+# Fazit
+* besonders einfaches erzeugen von WebAssembly mit Hilfe von Rust möglich
+* Crates wie `wasm-bindgen` und `serde` vereinfachen das Herstellen einer Schnittstelle zwischen JS und Rust
+* WebAssembly noch relativ neu, daher:
+      * sind Bugs keine Seltenheit
+      * sind auf StackOverflow noch nicht alle aufkommenden Fragen beantwortet
+
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
